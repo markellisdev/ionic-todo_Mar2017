@@ -18,8 +18,8 @@
 
 <ion-content padding>
   <h3>Users view page</h3>
-  <!-- This adds a searchbar -->
-  <ion-searchbar></ion-searchbar>
+  <!-- This adds a searchbar - input captures user input-->
+  <ion-searchbar (input)="search($event)"></ion-searchbar>
   <ion-list>
     <button ion-item *ngFor="let user of users" (click)="goToDetails(user.login)">
       <ion-avatar item-left>
