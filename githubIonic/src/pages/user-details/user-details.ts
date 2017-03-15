@@ -1,36 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { User } from '../../models/user';
-import { UserDetailsPage } from '../user-details/user-details';
+import { User } from '../../models/User';
 
 import { GithubUsers } from '../../providers/github-users';
 
 /*
-  Generated class for the Users page.
+  Generated class for the UserDetails page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  selector: 'page-users',
-  templateUrl: 'users.html'
+  selector: 'page-user-details',
+  templateUrl: 'user-details.html'
 })
-export class UsersPage {
-  users: User[]
+export class UserDetailsPage {
+    user: User;
+    login: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private githubUsers: GithubUsers) {
-    githubUsers.load().subscribe(users => {
-      this.users = users;
+    this.login = navParams.get('login');
+    githubUsers.loadDetails(this.login).subscribe(user => {
+      this.user = user;
     })
   }
 
-  goToDetails(login: string) {
-    this.navCtrl.push(UserDetailsPage, {login});
-  }
-
   ionViewDidLoad() {
-    console.log('Hello Users Page');
+    console.log('Hello UserDetails Page');
   }
 
 }
