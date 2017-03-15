@@ -15,8 +15,8 @@ import { OrganisationsPage } from '../pages/organisations/organisations';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  // make HelloIonicPage the root (or first) page
-  rootPage: any = HelloIonicPage;
+  // make UsersPage the root (or first) page
+  rootPage: any = UsersPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -27,8 +27,9 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Hello Ionic', component: HelloIonicPage },
-      { title: 'My First List', component: ListPage }
+      { title: 'Users', component: UsersPage },
+      { title: 'Repos', component: ReposPage },
+      { title: 'Organisations', component: OrganisationsPage },
     ];
   }
 
