@@ -30,7 +30,7 @@ export class AuthService {
       return Observable.create(observer => {
         // At this point make a request to your backend to make a real check!
         let access = (credentials.password === "pass" && credentials.email === "email")
-        this.currentUser = newUser('Mark', 'me@me.com');
+        this.currentUser = new User('Mark', 'me@me.com');
         observer.next(access);
         observer.complete();
       });
@@ -49,7 +49,7 @@ export class AuthService {
     }
   }
 
-  public.getUserInfo() : User {
+  public getUserInfo() : User {
     return this.currentUser;
   }
 
